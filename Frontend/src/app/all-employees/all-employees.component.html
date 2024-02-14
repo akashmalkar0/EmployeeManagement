@@ -1,0 +1,46 @@
+<div>
+  <button class="btn btn-outline-warning me-2" routerLink="/newemployee">
+    Add Employee
+  </button>
+</div>
+<div class="container mt-3">
+  <h1>All Employees</h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>
+          <button
+            (click)="employeedetails(employee.id)"
+            class="btn btn-outline-success me-1"
+          >
+            Details
+          </button>
+          <button
+            (click)="updateemployee(employee.id)"
+            class="btn btn-outline-primary me-1"
+          >
+            Update
+          </button>
+          <button
+            (click)="deleteemployee(employee.id)"
+            class="btn btn-outline-danger"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
